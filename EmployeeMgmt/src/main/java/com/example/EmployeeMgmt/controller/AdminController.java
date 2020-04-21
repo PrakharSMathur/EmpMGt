@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("Admin")
+@RequestMapping("/Admin")
 public class AdminController {
 @Autowired
   AdminService admin;
@@ -68,7 +68,7 @@ public class AdminController {
     return admin.addHRService(hr);
   }
 
-  @DeleteMapping("/DeleteHR")
+  @DeleteMapping("/DeleteHR/{hrId}")
   public String deleteHR(@PathVariable String hrId) {
     return admin.deleteHRService(hrId);
   }

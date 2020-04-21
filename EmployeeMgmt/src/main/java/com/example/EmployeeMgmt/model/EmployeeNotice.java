@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class EmployeeNotice {
 
   @Id
-  String empNoticeId;
+  String id;
   String from;
   String message;
 
@@ -21,13 +21,14 @@ public class EmployeeNotice {
   public EmployeeNotice() {
   }
 
+
   //Getters and Setters
   public String getEmpNoticeId() {
-    return empNoticeId;
+    return id;
   }
 
   public void setEmpNoticeId(String empNoticeId) {
-    this.empNoticeId = empNoticeId;
+    this.id = empNoticeId;
   }
 
   public String getFrom() {
@@ -51,7 +52,7 @@ public class EmployeeNotice {
   @Override
   public String toString() {
     return "EmployeeNotice{" +
-        "id='" + empNoticeId + '\'' +
+        "id='" + id + '\'' +
         ", from='" + from + '\'' +
         ", message='" + message + '\'' +
         '}';

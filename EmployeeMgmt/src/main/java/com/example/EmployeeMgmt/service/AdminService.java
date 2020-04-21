@@ -30,7 +30,7 @@ public class AdminService {
   public Serializable addEmployeeService(Employee employee) {
     //Adding Employee details supplied with Auto-Generated ID
     employee.setEmpId(SequenceGeneratorService.generateEmpIDSequence("employee_sequences"));
-    employeeRepository.insert(employee);
+    employeeRepository.save(employee);
 
     //Adding default leaves
     EmployeeLeaves newEmpLeave = new EmployeeLeaves();
@@ -39,7 +39,7 @@ public class AdminService {
     newEmpLeave.setLeaves_left(20);
     newEmpLeave.setLeaves_approved(0);
     newEmpLeave.setLeaves_applied(0);
-    employeeLeavesRepository.insert(newEmpLeave);
+    employeeLeavesRepository.save(newEmpLeave);
     return String.format("Employee Inserted and Leave Doc set - %s", employee.getEmpId());
 
 }
@@ -58,8 +58,9 @@ public class AdminService {
 
   public Serializable addHRService(HR hr){
       hr.setHrId(SequenceGeneratorService.generateHrIDSequence("hr_sequences"));
-      hrRepository.insert(hr);
-      return "Added HR -"+ hr.getHrId();
+      System.out.print(hr.toString());
+      hrRepository.save(hr);
+      return "Added HR -"+ hr.toString();
       }
 
   public String deleteHRService(String hrId) {

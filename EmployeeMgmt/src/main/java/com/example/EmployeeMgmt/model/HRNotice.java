@@ -6,22 +6,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "HRNotice")
 public class HRNotice {
   @Id
-  String noticeID; //(Auto-generated)
+  String id; //(Auto-generated)
   String from;
   String message;
 
   public HRNotice(String noticeID, String from, String message) {
-    this.noticeID = noticeID;
+    this.id = noticeID;
     this.from = from;
     this.message = message;
   }
 
+
   public String getNoticeID() {
-    return noticeID;
+    return id;
   }
 
   public void setNoticeID(String noticeID) {
-    this.noticeID = noticeID;
+    this.id = noticeID;
   }
 
   public String getFrom() {

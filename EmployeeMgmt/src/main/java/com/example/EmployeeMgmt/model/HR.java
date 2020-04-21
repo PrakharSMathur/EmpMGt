@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "HR")
 public class HR {
-  @Transient
+//  @Transient
   public static final String SEQUENCE_NAME = "hr_sequence";
 
   @Id
@@ -29,6 +29,20 @@ public class HR {
     this.email = email;
     this.location = location;
     this.security_clearance = security_clearance;
+  }
+
+  @Override
+  public String toString() {
+    return "HR{" +
+        "hrId='" + hrId + '\'' +
+        ", user_type=" + user_type +
+        ", name='" + name + '\'' +
+        ", password='" + password + '\'' +
+        ", phone='" + phone + '\'' +
+        ", email='" + email + '\'' +
+        ", location='" + location + '\'' +
+        ", security_clearance='" + security_clearance + '\'' +
+        '}';
   }
 
   public HR(){}

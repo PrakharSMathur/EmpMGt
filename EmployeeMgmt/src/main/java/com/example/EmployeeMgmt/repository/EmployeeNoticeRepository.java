@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeNoticeRepository extends MongoRepository<EmployeeNotice,String> {
 
-  ArrayList<EmployeeNotice> getEmpMsgById(String empId);
+  //ArrayList<EmployeeNotice> getEmpMsgByEmpId(String empId);
 
   void deleteAllById(String empId);
+
+  ArrayList<EmployeeNotice> getEmpMsgById(String empId);
 }

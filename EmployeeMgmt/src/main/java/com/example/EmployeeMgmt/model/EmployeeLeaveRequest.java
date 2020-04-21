@@ -1,15 +1,15 @@
 package com.example.EmployeeMgmt.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Transient;
+//import javax.persistence.Entity;
+//import javax.persistence.Transient;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+//@Entity
 @Document(collection = "EmployeeLeaveRequest")
 public class EmployeeLeaveRequest {
 
-  @Transient
+//  @Transient
   public static final String SEQUENCE_NAME = "emp_leave_req_sequence";
   @Id
   String leaveID;

@@ -1,6 +1,6 @@
 package com.example.EmployeeMgmt.model;
 
-import javax.persistence.Transient;
+//import javax.persistence.Transient;
 import org.springframework.data.annotation.Id;
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Employee {
 
   //Variable declarations
-  @Transient
+  //@Transient
   public static final String SEQUENCE_NAME = "employee_sequences";
 
   @Id
