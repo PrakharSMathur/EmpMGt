@@ -12,7 +12,7 @@ public class Employee_Sequence {
   @Id
   private String id;
   private String seq;
-  private int intseq;
+  //private int intseq;
   public Employee_Sequence(){
 
   }

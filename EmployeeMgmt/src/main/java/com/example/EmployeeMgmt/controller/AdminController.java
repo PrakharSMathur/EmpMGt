@@ -42,7 +42,7 @@ public class AdminController {
     return admin.addEmployeeService(employee);
   }
 
-  @PutMapping("/updateEmployee/{empId}")
+  @PutMapping("/UpdateEmployee/{empId}")
   public String updateEmployee(@RequestBody Employee employee,@PathVariable String empId){
     return admin.updateEmployeeService(employee,empId);
   }
@@ -73,6 +73,10 @@ public class AdminController {
     return admin.deleteHRService(hrId);
   }
 
+  @PutMapping("/UpdateHR/{hrId}")
+  public String updateHR(@RequestBody HR hr,@PathVariable String hrId){
+    return admin.updateHRService(hr,hrId);
+  }
 
 
 

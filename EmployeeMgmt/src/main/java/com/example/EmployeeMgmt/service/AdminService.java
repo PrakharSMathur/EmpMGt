@@ -91,6 +91,26 @@ public class AdminService {
       return "Updated :" + employee;
     }
   }
+
+  public String updateHRService(HR hr, String hrId) {
+    if (!hrRepository.findById(hrId).isPresent()) {
+      return "ID does not exist";
+    } else {
+
+      hr.setHrId(hrId);
+      hrRepository.save(hr);
+      return "Updated :" + hr;
+    }
+  }
+
+//  public HR HRUpdater(HR hr){
+//    Optional<HR> updater = hrRepository.findById(hr.getHrId());
+//
+//
+//
+//
+//  }
+
 }
 
 

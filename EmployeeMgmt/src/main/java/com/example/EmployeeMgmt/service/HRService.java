@@ -17,7 +17,7 @@ public class HRService {
   HRRepository hrRepository;
 
   public List<Employee> viewAllEmployees() {
-    return employeeRepository.findAll();
+    return (List<Employee>) employeeRepository.findAll();
   }
 
   public Optional<Employee> getEmployee(String empId) {

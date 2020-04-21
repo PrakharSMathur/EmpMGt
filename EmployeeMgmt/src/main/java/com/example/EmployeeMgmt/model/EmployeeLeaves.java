@@ -1,12 +1,12 @@
 package com.example.EmployeeMgmt.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "EmployeeLeaves")
 public class EmployeeLeaves {
-  //@Transient
+
   public static final String SEQUENCE_NAME = "employee_leaves_sequences";
   @Id
   String id;
