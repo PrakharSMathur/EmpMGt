@@ -9,7 +9,7 @@ public class HR_Sequence  {
   @Id
   private String id;
   private String seq;
-  private int intseq;
+//  private int intseq;
   public HR_Sequence(){
 
   }

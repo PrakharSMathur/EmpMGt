@@ -3,11 +3,11 @@ package com.example.EmployeeMgmt.controller;
 import com.example.EmployeeMgmt.model.Employee;
 import com.example.EmployeeMgmt.model.HR;
 import com.example.EmployeeMgmt.service.AdminService;
-import com.example.EmployeeMgmt.service.EmployeeService;
-import com.example.EmployeeMgmt.service.HRService;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,31 +23,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class AdminController {
 @Autowired
   AdminService admin;
-@Autowired
-  HRService hrService;
-@Autowired
-  EmployeeService employeeService;
 
   @GetMapping("/GetAllEmployees")
   public List<Employee> viewAllEmployees()
   {
-    return hrService.viewAllEmployees();
+    return admin.viewAllEmployees();
   }
 
   @GetMapping("/GetEmployee/{empId}")
-  public Optional<Employee> getEmployee(@PathVariable String empId){ return hrService.getEmployee(empId);  }
+  public Optional<Employee> getEmployee(@PathVariable String empId){ return admin.getEmployee(empId);  }
 
   @PostMapping("/AddEmployee")
   public Serializable addStudentService(@RequestBody Employee employee) {
     return admin.addEmployeeService(employee);
   }
 
-  @PutMapping("/updateEmployee/{empId}")
+  @PutMapping("/UpdateEmployee/{empId}")
   public String updateEmployee(@RequestBody Employee employee,@PathVariable String empId){
     return admin.updateEmployeeService(employee,empId);
   }
 
-  @DeleteMapping("/DeleteEmployee")
+  @DeleteMapping("/DeleteEmployee/{empId}")
   public String deleteEmployee(@PathVariable String empId) {
     return admin.deleteEmployeeService(empId);
   }
@@ -63,6 +59,9 @@ public class AdminController {
     return admin.getHR(hrId);
   }
 
+  @GetMapping("/GetHRbyName/{name}")
+  public Optional<HR> getHRbyName(@PathVariable String name) { return admin.getHRbyName(name);}
+
   @PostMapping("/AddHR")
   public Serializable addHRService(@RequestBody HR hr) {
     return admin.addHRService(hr);
@@ -73,6 +72,10 @@ public class AdminController {
     return admin.deleteHRService(hrId);
   }
 
+  @PutMapping("/UpdateHR/{hrId}")
+  public String updateHR(@RequestBody HR hr,@PathVariable String hrId){
+    return admin.updateHRService(hr,hrId);
+  }
 
 
 

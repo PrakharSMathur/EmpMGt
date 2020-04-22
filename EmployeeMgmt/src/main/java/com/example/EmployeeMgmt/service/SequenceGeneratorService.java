@@ -4,9 +4,8 @@ import static org.springframework.data.mongodb.core.FindAndModifyOptions.options
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
-import com.example.EmployeeMgmt.model.Employee_Leave_Sequence;
-import com.example.EmployeeMgmt.model.Employee_Sequence;
-import com.example.EmployeeMgmt.model.HR_Sequence;
+import com.example.EmployeeMgmt.model.*;
+
 import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,21 +43,21 @@ public class SequenceGeneratorService {
         Employee_Leave_Sequence.class);
     return !Objects.isNull(counter) ? counter.getSeq() : "1";
   }
+
+  public static String generateEmpNoticeSequence(String seqName) {
+    Employee_Notice_Sequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
+        new Update().inc("seq", 1), options().returnNew(true).upsert(true),
+        Employee_Notice_Sequence.class);
+    return !Objects.isNull(counter) ? counter.getSeq() : "1";
+  }
+
+  public static String generateHRNoticeSequence(String seqName) {
+    HR_Notice_Sequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
+        new Update().inc("seq", 1), options().returnNew(true).upsert(true),
+        HR_Notice_Sequence.class);
+    return !Objects.isNull(counter) ? counter.getSeq() : "1";
+  }
 /*
-  public String generateEmpNoticeSequence(String seqName) {
-    Emp_Notice_Sequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
-        new Update().inc("seq", 1), options().returnNew(true).upsert(true),
-        Emp_Notice_Sequence.class);
-    return !Objects.isNull(counter) ? counter.getSeq() : "1";
-  }
-
-  public String generateHRNoticeSequence(String seqName) {
-    Hr_Notice_Sequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
-        new Update().inc("seq", 1), options().returnNew(true).upsert(true),
-        Hr_Notice_Sequence.class);
-    return !Objects.isNull(counter) ? counter.getSeq() : "1";
-  }
-
   public String generateAdminReqSequence(String seqName) {
     Admin_Request_Sequence counter = mongoOperations.findAndModify(query(where("_id").is(seqName)),
         new Update().inc("seq", 1), options().returnNew(true).upsert(true),

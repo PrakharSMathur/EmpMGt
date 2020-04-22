@@ -5,16 +5,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "EmployeeNotice")
 public class EmployeeNotice {
-
+  public static final String SEQUENCE_NAME = "employee_notice_sequences";
   @Id
   String id;
+  String toEmpID;
   String from;
+
+
   String message;
 
   //Constructor
-  public EmployeeNotice(String from, String message) {
+  public EmployeeNotice(String from,String toEmpID, String message) {
     super();
     this.from = from;
+    this.toEmpID=toEmpID;
     this.message = message;
   }
 
@@ -23,6 +27,14 @@ public class EmployeeNotice {
 
 
   //Getters and Setters
+  public String getToEmpID() {
+    return toEmpID;
+  }
+
+  public void setToEmpID(String toEmpID) {
+    this.toEmpID = toEmpID;
+  }
+
   public String getEmpNoticeId() {
     return id;
   }
@@ -49,12 +61,14 @@ public class EmployeeNotice {
 
   //toString
 
+
   @Override
   public String toString() {
     return "EmployeeNotice{" +
-        "id='" + id + '\'' +
-        ", from='" + from + '\'' +
-        ", message='" + message + '\'' +
-        '}';
+            "id='" + id + '\'' +
+            ", toEmpID='" + toEmpID + '\'' +
+            ", from='" + from + '\'' +
+            ", message='" + message + '\'' +
+            '}';
   }
 }
